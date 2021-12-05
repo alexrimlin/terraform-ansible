@@ -1,0 +1,5 @@
+.terraform*
+*tfstate*
+*.auto.tfvars
+*.yml
+!.*.yml

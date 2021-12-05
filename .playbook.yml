@@ -1,0 +1,15 @@
+# Just an example
+- become: yes
+  hosts: all
+  name: ansible-install 
+  tasks:
+
+  - name: Wait for apt to unlock
+    become: yes
+    shell: while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep5; done;
+
+  - name: Install Ansible
+    apt:
+      name: ansible
+      state: latest
+      update_cache: yes
